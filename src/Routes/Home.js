@@ -7,6 +7,7 @@ import biology from "../assets/imgCategories/biology.png"
 import literature from "../assets/imgCategories/literature.jpg"
 import mathematics from "../assets/imgCategories/mathematics.jpg"
 import physics from "../assets/imgCategories/physics.png"
+import interestelar from "../assets/imgBackgrounds/interestelar.jpg";
 
 export default function Home() {
 
@@ -27,22 +28,22 @@ export default function Home() {
                 <Header>
                     <h4>Amateur Library</h4>
                     <HeaderOptions>
-                        <div>
+                        <li>
                             <p>Gallery</p>
                             <ion-icon name="library"></ion-icon>
-                        </div>
-                        <div>
+                        </li>
+                        <li>
                             <p>Sign up</p>
                             <ion-icon name="person-add"></ion-icon>
-                        </div>
-                        <div>
+                        </li>
+                        <li>
                             <p>Sign in</p>
                             <ion-icon name="person"></ion-icon>
-                        </div>
-                        <div>
+                        </li>
+                        <li>
                             <p>About</p>
                             <ion-icon name="information-circle"></ion-icon>
-                        </div>
+                        </li>
                     </HeaderOptions>
                 </Header>
                 <Description>
@@ -63,7 +64,7 @@ export default function Home() {
                                 <div className="externalCircle">
                                     <div className="middleCircle">
                                         <div className="internalCircle">
-                                            <img src={i.image}>
+                                            <img src={i.image} alt={`${i.category}`}>
                                             </img>
                                         </div>
                                     </div>
@@ -75,36 +76,38 @@ export default function Home() {
                 </Categories>
                 <Link to={"/"} style={{ textDecoration: 'none' }}><h3>See all Categories</h3></Link>
             </TopPage>
+            <MiddleContent>
+            </MiddleContent>
+            <CharactersContent>
+
+            </CharactersContent>
         </>
     );
 }
 const TopPage = styled.section`
     width: 100%;
-    height: 75%;
+    height: 700px;
     display: flex;
     flex-direction: column;
-    background-image: linear-gradient(to bottom, #051937, #003f63, #006a8a, #0097aa, #3cc6c0);
-    Link{
+    //background-image: linear-gradient(to bottom, #051937, #003f63, #006a8a, #0097aa, #3cc6c0);
+    background-color: black;
+    scroll-snap-align: start;
+    Link, h3{
         width: 100%;
         display: flex;
         align-items: center;
-        justify-content: flex-end;
-        box-sizing: border-box;
+        justify-content: center;
     }
     h3{
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
+            height: 70px;
             font-weight: 400;
             font-size: 20px;
             font-family: 'Mynerve';
             font-style: normal;
-            line-height: 18px;
             color: #006686;
-            margin-top: 45px;
             &:hover{
                 font-size: 22px;
-                color: #051937;
+                color: #eee9e5;
                 transition: 0.5s;
             }
             &:not(:hover){
@@ -119,17 +122,17 @@ const Header = styled.header`
     position: relative;
     h4{
         font-weight: 300;
-        font-size: 30px;
+        font-size: 25px;
         font-family: 'Saira Stencil One';
         font-style: normal;
-        color: #ffffff;
+        color: #eee9e5;
         position: absolute;
-        top: 22px;
+        top: 25px;
         left: 30px;
     }
 
 `;
-const HeaderOptions = styled.div`
+const HeaderOptions = styled.ul`
         width: 100%;
         height: 80px;
         display: flex;
@@ -137,7 +140,7 @@ const HeaderOptions = styled.div`
         justify-content: flex-end;
         box-sizing: border-box;
         padding-right: 20px;
-        div{
+        li{
             display: flex;
             align-items: center;
             justify-content: space-around;
@@ -146,16 +149,16 @@ const HeaderOptions = styled.div`
             padding: 5px;
             ion-icon {
                 margin-left: 5PX;
-                color: #FFFFFF;
-                font-size: 18px;
+                color: #eee9e5;
+                font-size: 12px;
             }
             P{
                 font-family: 'Montserrat';
                 font-style: normal;
                 font-weight: 300;
-                font-size: 18px;
+                font-size: 15px;
                 line-height: 18px;
-                color: #FFFFFF;
+                color: #eee9e5;
             }
             :hover{
                     cursor: pointer;
@@ -172,15 +175,16 @@ const HeaderOptions = styled.div`
 `;
 const Description = styled.span`
     width: 100%;
-    height: 120px;
+    height: 180px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    box-sizing: border-box;
+    padding-bottom: 15px;
     flex-direction: column;
     font-family: 'Roboto';
     font-style: normal;
-    line-height: 18px;
-    color: #FFFFFF;
+    color: #eee9e5;
     h1, h2{
         width: 70%;
         display: flex;
@@ -190,11 +194,11 @@ const Description = styled.span`
     }
     h1{
         font-weight: 700;
-        font-size: 22px;
+        font-size: 18px;
     }
     h2{
         font-weight: 400;
-        font-size: 18px;
+        font-size: 15px;
     }
 `;
 const Search = styled.div`
@@ -203,21 +207,19 @@ const Search = styled.div`
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    padding-top: 30px;
     form{
         display: flex;
         align-items: center;
         justify-content: center;
         input{
-            width: 600px;
-            height: 45px;
+            width: 550px;
+            height: 38px;
             background: #FFFFFF;
             box-sizing: border-box;
             font-family: 'Montserrat';
             font-style: normal;
             font-weight: 300;
-            font-size: 16px;
-            line-height: 16px;
+            font-size: 14px;
             color: #000000;
             border-top-left-radius: 10px;
             border-bottom-left-radius: 10px;
@@ -230,14 +232,14 @@ const Search = styled.div`
             }
         }
         button{
-            width: 60px;
-            height: 45px;
+            width: 55px;
+            height: 38px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-top-right-radius: 10px;
             border-bottom-right-radius: 10px;
-            background-color: #86969e;
+            background-color: #33384e;
             border: none;
             ion-icon {
                 color: #FFFFFF;
@@ -246,11 +248,11 @@ const Search = styled.div`
             }
             &:hover{
                 cursor: pointer;
-                background-color: #d0d2ce;
+                background-color: #ddcaa2;
                 transition: 0.5s;
                 ion-icon {
                     --ionicon-stroke-width: 70px;
-                    color: #0489a0;
+                    color: #33384e;
                     transition: 0.5s;
             }
             }
@@ -267,7 +269,7 @@ const Search = styled.div`
 `;
 const Categories = styled.div`
     width: 100%;
-    margin-top: 30px;
+    height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -275,36 +277,30 @@ const Categories = styled.div`
     .text{
         width: 70%;
         height: 65px;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
         font-weight: 400;
         font-size: 18px;
         font-family: 'Roboto';
         font-style: normal;
-        line-height: 18px;
-        color: #FFFFFF;
+        color: #eee9e5;
     }
-    span{
-        width: 100%;
-        margin-top: 30px;
+    span, .text, div, p{
         display: flex;
         align-items: center;
         justify-content: center;
-
+    }
+    span{
+        width: 75%;
+        justify-content: space-around; 
         div{
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 230px;
             flex-direction: column;
+            justify-content: flex-end;
             .externalCircle{
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 width: 134px;
                 height: 134px;
-                margin-left: 25px;
-                margin-right: 25px;
                 position: relative;
                 z-index: 1;
                 background-color: #ffffff;
@@ -315,12 +311,15 @@ const Categories = styled.div`
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    width: 129px;
-                    height: 129px;
-                    background-color: #00918c;
+                    width: 132px;
+                    height: 132px;
+                    background-color: #000000;
                     clip-path: circle(50.0% at 50% 50%);
                     .internalCircle{
                         position: absolute;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
                         z-index: 3;
                         display: flex;
                         background-color: #fee8e8;
@@ -344,18 +343,31 @@ const Categories = styled.div`
                 }
             }
             p{
-                display: flex;
-                justify-content: center;
-                align-items: flex-end;
+                height: 50px;
                 font-weight: 400;
                 font-size: 22px;
                 font-family: 'Mynerve';
                 font-style: normal;
                 line-height: 18px;
-                color: #051937;
-                margin-top: 13px;
+                color: #eee9e5;
             }
     }
     }
     
+`;
+const MiddleContent = styled.section`
+    width: 100%;
+    height: 550px;
+    scroll-snap-align: start;
+    background-image:url(${interestelar});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    filter: brightness(60%);
+`;
+const CharactersContent = styled.section`
+    width: 100%;
+    height: 650px;
+    scroll-snap-align: start;
+    background-color: #000000;
 `;

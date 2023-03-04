@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import GlobalStyle from "./Components/GlobalStyle"
 import { React, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -11,7 +10,7 @@ export default function App() {
   const [token, setToken] = useState("");
 
   return (
-    <Body>
+    <>
       <GlobalStyle/>
       <UserContext.Provider value = {{nome, setNome, token, setToken}}>
       <BrowserRouter>
@@ -20,14 +19,6 @@ export default function App() {
         </Routes>
       </BrowserRouter>
       </UserContext.Provider>
-    </Body>
+    </>
   );
 }
-
-const Body = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-`;
