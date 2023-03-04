@@ -86,14 +86,16 @@ export default function Home() {
 }
 const TopPage = styled.section`
     width: 100%;
-    height: 700px;
+    height: 660px;
     display: flex;
     flex-direction: column;
     //background-image: linear-gradient(to bottom, #051937, #003f63, #006a8a, #0097aa, #3cc6c0);
     background-color: black;
     scroll-snap-align: start;
+    Link{
+    width: 100%
+    }
     Link, h3{
-        width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
